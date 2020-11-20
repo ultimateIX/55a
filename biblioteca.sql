@@ -1,4 +1,4 @@
-ï»¿# SQL-Front 5.1  (Build 4.16)
+# SQL-Front 5.1  (Build 4.16)
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
 /*!40101 SET SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */;
@@ -19,6 +19,30 @@ CREATE DATABASE `biblioteca` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `biblioteca`;
 
 #
+# Source for table editorial
+#
+
+DROP TABLE IF EXISTS `editorial`;
+CREATE TABLE `editorial` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(40) CHARACTER SET latin1 NOT NULL DEFAULT 'Panini',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table editorial
+#
+
+LOCK TABLES `editorial` WRITE;
+/*!40000 ALTER TABLE `editorial` DISABLE KEYS */;
+INSERT INTO `editorial` VALUES (1,'Santillana');
+INSERT INTO `editorial` VALUES (2,'Panini');
+INSERT INTO `editorial` VALUES (3,'El volcán');
+INSERT INTO `editorial` VALUES (4,'Caja negra');
+/*!40000 ALTER TABLE `editorial` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
 # Source for table libro
 #
 
@@ -31,7 +55,7 @@ CREATE TABLE `libro` (
   `editorial` varchar(50) CHARACTER SET latin1 NOT NULL DEFAULT '',
   `fecha` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table libro
@@ -39,9 +63,10 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
-INSERT INTO `libro` VALUES (1,'0123829121','Las nubes','AristÃ³fanes','Santillana','0424-11-05');
-INSERT INTO `libro` VALUES (2,'9283019230','Especies Ãºtiles de la flora salvadoreÃ±a','David JoaquÃ­n GuzmÃ¡n','Panini','1926-06-25');
-INSERT INTO `libro` VALUES (3,'2973811023','Edipo rey','SÃ³focles','El volcÃ¡n','0430-09-30');
+INSERT INTO `libro` VALUES (1,'0000000001','Crepúsculo','Edward Cullen','Santillana','2010-12-01');
+INSERT INTO `libro` VALUES (2,'9283019230','Especies útiles de la flora salvadoreña','David Joaquín Guzmán','Panini','1926-06-25');
+INSERT INTO `libro` VALUES (3,'2973811023','Edipo rey','Sófocles','El volcán','0430-09-30');
+INSERT INTO `libro` VALUES (4,'0000000000','Psicología del éxito','Mario Luna','Caja negra','2015-06-01');
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 

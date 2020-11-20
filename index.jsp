@@ -24,12 +24,13 @@
         <script type="text/javascript" src="JS/metodos.js"></script>
         <!--Conexion a base de datos-->
         <sql:setDataSource var = "fuenteDatos" driver = "org.mariadb.jdbc.Driver"
-                           url = "jdbc:mariadb://localhost/biblioteca"
+                           url = "jdbc:mariadb://localhost:3308/biblioteca"
                            user = "root"  password = ""/>
         <!--Fin Conexion a base de datos-->
 
         <div class="container p-3 my-3 bg-light border" id="formulario">
-            <form action="matto.jsp" method="get" name="Actualizar">
+            <!-- el action ahora es con insert.jsp-->
+            <form  method="get" name="Actualizar"  action="insert.jsp">
                 <legend class="text-center header">
                     <a id="home" href=#><H1>MANTENIMIENTO DE LIBROS</H1></a>
                 </legend>
@@ -56,14 +57,13 @@
                         <div class="col-md-4"> <!-- Editorial -->
                             <label for="editorial_id" class="control-label">Editorial</label>
                             <select class="form-control" id="listaEditorial" name="listaEditorial">
-                                <option value= "">Elija su editorial...</option>
-                                <optgroup>
+                                <optgroup><option value= "">Elija su editorial...</option>
                                     <sql:query dataSource = "${fuenteDatos}" var = "editorial">
-                                        SELECT editorial from libro;
+                                        SELECT nombre from editorial;
                                     </sql:query>
                                     <c:forEach var = "row" items = "${editorial.rows}">
                                         <option>
-                                            <c:out value = "${row.editorial}"/>
+                                            <c:out value = "${row.nombre}"/>
                                         </option>
                                     </c:forEach>
                                 </optgroup>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-group"> <!-- Boton Insertar -->
                     <input type="hidden" name="Action" value="Crear" checked/>
-                    <button id="insertar" type="SUBMIT" name="boton_A" value="INSERTAR" class="btn btn-success"/>INSERTAR</button>
+                    <button id="insertar" type="SUBMIT" name="boton_A" value="INSERTAR" class="btn btn-success" />INSERTAR</button>
                 </div>     
             </form>
         </div>
