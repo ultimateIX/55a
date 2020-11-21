@@ -50,6 +50,15 @@ border-radius: 5px;
 position: relative;
 display: block;}
 
+#login_link{
+    width: 50px;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+}
+.p_log_cla{
+    color: green;
+}
 /*
 #insertar,#registro,#actualizate,#eliminate{background-color: #C4BED4;}
 
