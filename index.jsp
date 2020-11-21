@@ -6,8 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+
+<c:set var="pageId" value="Index" />
+<c:set var="standalone" value="not" />
+<%@ include file="seguridad.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,8 +37,14 @@
         <div class="container p-3 my-3 bg-light border" id="formulario">
             <!-- el action ahora es con insert.jsp-->
             <form  method="get" name="Actualizar"  action="insert.jsp">
+                
+               <%@ include file="header.jsp" %>
+        
+        
                 <legend class="text-center header">
                     <a id="home" href=#><H1>MANTENIMIENTO DE LIBROS</H1></a>
+                    <p class="p_log_cla">*login: Digitador, clave: 1 </p>
+                    <p class="p_log_cla">**login: Mantenimiento, clave: 2</p>
                 </legend>
                 <div class="form-group">
                     <div class="row">
@@ -126,5 +138,6 @@
             </div>
         </div>
         <a href="#"><div class="up">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>↑</b></div></a>
+        
     </body>
 </html>
