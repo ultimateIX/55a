@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*INICIO ELIMINAR*/
 function eliminar(isbn)
 {
     var confirmar;
@@ -12,7 +11,6 @@ function eliminar(isbn)
         location.href = "delete.jsp?isbn=" + isbn;
     }
 }
-/*FIN ELIMINAR*/
 /*INICIO PAGINACION*/
 $(document).ready(function () {
     $('#tabla').DataTable({
